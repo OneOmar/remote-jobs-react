@@ -10,27 +10,24 @@ export function SearchForm({ onChange }) {
             id='company-name'
             placeholder='Remotive'
             onChange={onChange}
-        // value={params.company_name}
         />
-        {/* TODO: Add onChange Handler */}
-        <select className='form-select' aria-label='Default'>
+        <select className='form-select' aria-label='Default' onChange={onChange}>
             <option defaultValue>All categories</option>
-            <option data-name='category' value='software-dev'>Software Development</option>
-            <option data-name='category' value='customer-support'>Customer Service</option>
-            <option data-name='category' value='design'>Design</option>
-            <option data-name='category' value='marketing'>Marketing</option>
-            <option data-name='category' value='sales'>Sales</option>
-            <option data-name='category' value='business'>Business</option>
-            <option data-name='category' value='data'>Data</option>
-            <option data-name='category' value='devops'>DevOps</option>
-            <option data-name='category' value='finance-legal'>Finance / Legal</option>
-            <option data-name='category' value='hr'>Human Resources</option>
-            <option data-name='category' value='all-others'>Others</option>
+            <option value='software-dev'>Software Development</option>
+            <option value='customer-support'>Customer Service</option>
+            <option value='design'>Design</option>
+            <option value='marketing'>Marketing</option>
+            <option value='sales'>Sales</option>
+            <option value='business'>Business</option>
+            <option value='data'>Data</option>
+            <option value='devops'>DevOps</option>
+            <option value='finance-legal'>Finance / Legal</option>
+            <option value='hr'>Human Resources</option>
+            <option value='all-others'>Others</option>
         </select>
     </form>
 }
 
 SearchForm.propTypes = {
-    params: PropTypes.object,
     onChange: PropTypes.func
 }

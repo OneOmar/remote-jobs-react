@@ -10,7 +10,6 @@ export default function App() {
 
   const [params, setParams] = useState({})
   const { loading, errors, jobs } = useFetchJobs(params)
-  const [value, setValue] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [jobsPerPage] = useState(10)
 
@@ -28,15 +27,17 @@ export default function App() {
 
   // memoize the debounce call with useMemo
   const debouncedSendRequest = useMemo(() => {
-    return debounce(handleParamChange, 1000)
+    return debounce(handleParamChange, 500)
   }, [handleParamChange])
 
-
   function onChange(e) {
-    const value = e.target.value
-    setValue(value)
-    debouncedSendRequest(e)
+    if (e.target.type === 'text') {
+      debouncedSendRequest(e)
+    } else {
+      handleParamChange(e)
+    }
   }
+
 
   // Get current jobs!
   const indexOfLastJob = currentPage * jobsPerPage
@@ -57,7 +58,7 @@ export default function App() {
   return (
     <div className='container my-4'>
       <h1 className='text-primary mb-4'>Remote Jobs </h1>
-      <SearchForm value={value} onChange={onChange} />
+      <SearchForm onChange={onChange} />
       {loading && <Loader />}
       {errors && <div className='alert alert-danger' role='alert'>ERROR! Try Refreshing</div>}
       {!loading && <Pagination
