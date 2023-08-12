@@ -12,7 +12,7 @@ export function Pagination({ currentPage, totalJobs, jobsPerPage, paginate, adju
         <nav aria-label='page-navigation'>
             <ul className='pagination justify-content-center'>
                 {currentPage !== 1 && <li className='page-item'>
-                    <a onClick={() => adjustPage(-1)} className='page-link' href='!#' aria-label='Previous'>
+                    <a onClick={() => adjustPage(-1)} className='page-link' href='#' aria-label='Previous'>
                         <span aria-hidden='true'>&laquo;</span>
                     </a>
                 </li>}
@@ -20,13 +20,13 @@ export function Pagination({ currentPage, totalJobs, jobsPerPage, paginate, adju
                     < li
                         key={number}
                         className={number !== currentPage ? 'page-item' : 'page-item active'} >
-                        <a onClick={() => paginate(number)} href='!#' className='page-link'>
+                        <a onClick={() => paginate(number)} href='#' className='page-link'>
                             {number}
                         </a>
                     </li>
                 ))}
                 {currentPage !== pageNumbers.length && <li className='page-item'>
-                    <a onClick={() => adjustPage(1)} className='page-link' href='!#' aria-label='Next'>
+                    <a onClick={() => adjustPage(1)} className='page-link' href='#' aria-label='Next'>
                         <span aria-hidden='true'>&raquo;</span>
                     </a>
                 </li>}
