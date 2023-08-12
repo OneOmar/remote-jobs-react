@@ -11,7 +11,7 @@ const ACTIONS = {
 }
 
 function reducer(state, action) {
-    // console.log('REDUCER', action.type)
+    console.log('REDUCER', action.type)
     switch (action.type) {
         case ACTIONS.MAKE_REQUEST:
             return { loading: true, jobs: [] }

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 
 export function Pagination({ currentPage, totalJobs, jobsPerPage, paginate, adjustPage }) {
+
     const pageNumbers = []
 
     for (let i = 1; i <= Math.ceil(totalJobs / jobsPerPage); i++) {
@@ -11,7 +12,7 @@ export function Pagination({ currentPage, totalJobs, jobsPerPage, paginate, adju
         <nav aria-label='page-navigation'>
             <ul className='pagination justify-content-center'>
                 {currentPage !== 1 && <li className='page-item'>
-                    <a onClick={() => adjustPage(-1)} className='page-link' href='#' aria-label='Previous'>
+                    <a onClick={() => adjustPage(-1)} className='page-link' href='!#' aria-label='Previous'>
                         <span aria-hidden='true'>&laquo;</span>
                     </a>
                 </li>}
